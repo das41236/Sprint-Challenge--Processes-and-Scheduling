@@ -89,6 +89,20 @@ int main(void)
             break;
         }
 
+        //Change DIR using chDir()
+
+        // else if (strcmp(args[0], "cd") == 0) {
+        //     char *homeDirectory = getevn("HOME");
+        //     char *directory = (args_count > 1) ? args[1] : homeDirectory;
+
+        //     if (chdir(directory) == -1) {
+        //         perror("chdir");
+        //     }
+
+        //     continue;
+        // }
+
+
         #if DEBUG
 
         // Some debugging output
@@ -101,6 +115,17 @@ int main(void)
         #endif
         
         /* Add your code for implementing the shell's logic here */
+
+        pid_t pid = fork();
+
+        if (pid == -1) {
+            printf("Failed to fork \n");
+        } else if (pid > 0) {
+            int status;
+            waitpid(pid, &status, 0);
+        } else {
+            execvp(args[0], &args[0]);
+        }
         
     }
 

@@ -11,4 +11,4 @@ A Process that gets created when the Parent process does not wait for the child 
 The scheduler manages the priorities of each process and how much time they are given to execute in each processor cycle. It can create the effect of all processes running simultaneously.
 
 4. 
-MLFQ gives priority to the processes that are newly created, then lowers their priority if they are very compute intensive. This allows the processor to complete all the smaller processes very quickly while still taking the time to compute larger ones in the background.
+MLFQ gives priority to the processes that are newly created, then lowers their priority if they are very compute intensive. This allows the processor to complete all the smaller processes very quickly while still taking the time to compute larger ones in the background. Round-Robbin might have the user waiting a long time for something as simple as moving the mouse because it might need to take extra time for a compute intensive process.
